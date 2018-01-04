@@ -17,15 +17,28 @@ import java.util.concurrent.Executors;
 
 public class ImageLoader {
 
-    //内存缓存
-    ImageCaches mImageCache = new ImageCaches();
+    //图片缓存
+    ImageCache mImageCache = new MemoryCache();
     //线程池，数量为CPU的数量
     ExecutorService fixedThreadPool =
             Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     Handler mUIHandler = new Handler(Looper.getMainLooper());
 
+    public void setImageCache(ImageCache imageCache) {
+        mImageCache = imageCache;
+    }
+
     public void displayImage(final String url, final ImageView imageView){
+        Bitmap bitmap = mImageCache.get(url);
+        if(bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+            return;
+        }
+        submitLoadRequest(url, imageView);
+    }
+
+    private void submitLoadRequest(final String url, final ImageView imageView) {
         imageView.setTag(url);
         fixedThreadPool.submit(new Runnable() {
             @Override

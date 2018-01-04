@@ -8,6 +8,8 @@ import android.os.Bundle;
  * 面向对象的六大原则
  * -单一职责原则
  * 一个类中应该是一组相关性很高的函数，数据的封装
+ * -开闭原则
+ * 对于修改是封闭的，对于扩展是开放的
  */
 
 public class MainActivity extends AppCompatActivity {
