@@ -9,7 +9,7 @@ import android.graphics.Bitmap;
 public class DoubleCache implements ImageCache{
 
     //内存缓存
-    ImageCaches mImageCache = new ImageCaches();
+    ImageCache mImageCache = new MemoryCache();
     //SD卡缓存
     DiskCache mDiskCache = new DiskCache();
 

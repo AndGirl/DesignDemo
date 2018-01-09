@@ -25,6 +25,10 @@ public class ImageLoader {
 
     Handler mUIHandler = new Handler(Looper.getMainLooper());
 
+    /**
+     * 设置缓存策略
+     * @param imageCache
+     */
     public void setImageCache(ImageCache imageCache) {
         mImageCache = imageCache;
     }
