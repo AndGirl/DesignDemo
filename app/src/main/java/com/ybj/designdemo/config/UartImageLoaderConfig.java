@@ -12,6 +12,14 @@ import com.ybj.designdemo.cache.UartBitmapCache;
 
 public class UartImageLoaderConfig {
 
+    /**
+     * 配置缓存方式
+     */
     public UartBitmapCache bitmapCache = (UartBitmapCache) new MemoryCache();
+
+    /**
+     * 加载图片时的loading和加载失败的配置
+     */
+    public DisplayConfig displayConfig = new DisplayConfig();
 
 }
